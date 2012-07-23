@@ -21,7 +21,7 @@
 # lines, full and toro, hence its name.
 #
 
-# Camera
+# Camera and Gallery
 PRODUCT_PACKAGES := \
     Camera \
     Gallery \
@@ -31,7 +31,7 @@ PRODUCT_PACKAGES := \
 PRODUCT_COPY_FILES += \
     device/samsung/toro/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-    frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -45,3 +45,4 @@ PRODUCT_NAME := full_toro
 PRODUCT_DEVICE := toro
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Full AOSP on Toro-VZW
+PRODUCT_RESTRICT_VENDOR_FILES := false

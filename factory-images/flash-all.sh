@@ -1,4 +1,6 @@
-# Copyright (C) 2010 The Android Open Source Project
+#!/bin/sh
+
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,9 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := vendor/broadcom/toro
-
-# Broadcom blob(s) necessary for Toro hardware
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/proprietary/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \
-
+fastboot flash bootloader bootloader-toro-primekj10.img
+fastboot reboot-bootloader
+sleep 5
+fastboot flash radio-cdma radio-cdma-toro-i515.ek01.img
+fastboot reboot-bootloader
+sleep 5
+fastboot flash radio radio-toro-i515.ek02.img
+fastboot reboot-bootloader
+sleep 5
+fastboot -w update image-mysid-itl41d.zip

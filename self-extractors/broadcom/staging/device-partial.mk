@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := vendor/nxp/toro
-
-# NXP blob(s) necessary for Toro hardware
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/proprietary/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so \
-
+# Broadcom blob(s) necessary for Toro hardware
+PRODUCT_PACKAGES := \
+    bcm4330

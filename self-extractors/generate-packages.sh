@@ -18,8 +18,29 @@
 # 201178 = IRL10B
 # 213821 = ICL26
 # 221202 = ICL39
-ZIP=mysid-ota-221202.zip
-BUILD=icl39
+# 236517 = IML70C
+# 237179 = IML73
+# 237867 = IML74B
+# 238432 = IML74E
+# 238649 = IML74G
+# 239410 = IML74K
+# 262866 = IMM30D
+# 299849 = IMM76D
+# end ics-mr1
+# start jellybean
+# 241968 = IRM03
+# end jellybean
+BRANCH=jellybean
+if test $BRANCH=ics-mr1
+then
+  ZIP=mysid-ota-299849.zip
+  BUILD=imm76d
+fi #ics-mr1
+if test $BRANCH=jellybean
+then
+  ZIP=mysid-ota-241968.zip
+  BUILD=irm03
+fi # jellybean
 ROOTDEVICE=toro
 DEVICE=toro
 MANUFACTURER=samsung
@@ -45,7 +66,7 @@ do
     ;;
   imgtec)
     TO_EXTRACT="\
-            system/vendor/bin/pvrsrvinit \
+            system/vendor/bin/pvrsrvctl \
             system/vendor/lib/egl/libEGL_POWERVR_SGX540_120.so \
             system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so \
             system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so \
@@ -73,18 +94,19 @@ do
   samsung)
     TO_EXTRACT="\
             system/app/BIP.apk \
+            system/app/CellBroadcastReceiver.apk \
             system/app/IMSFramework.apk \
             system/app/RTN.apk \
             system/app/SDM.apk \
             system/app/SPG.apk \
             system/app/SyncMLSvc.apk \
             system/bin/fRom \
-            system/lib/lib_gsd4t.so \
             system/lib/libsecril-client.so \
             system/lib/libsyncml_core.so \
             system/lib/libsyncml_port.so \
-            system/vendor/lib/libims_jni.so \
+            system/lib/lib_gsd4t.so \
             system/vendor/lib/libims.so \
+            system/vendor/lib/libims_jni.so \
             system/vendor/lib/libsec-ril_lte.so \
             "
     ;;
