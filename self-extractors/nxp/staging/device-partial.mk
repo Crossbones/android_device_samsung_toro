@@ -13,5 +13,8 @@
 # limitations under the License.
 
 # NXP blob(s) necessary for Toro hardware
-PRODUCT_PACKAGES := \
-    libpn544_fw
+LOCAL_PATH := vendor/nxp/toro
+
+# NXP blob necessary for Verizon Galazy Nexus hardware
+PRODUCT_COPY_FILES := \
+    $(LOCAL_PATH)/proprietary/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
